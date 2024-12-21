@@ -3,7 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 
-require 'custom.plugins.floaterminal'
+require 'custom.plugins.toggleterm'
 require 'custom.plugins.tabs'
 
 return {}
