@@ -3,6 +3,5 @@
 After exploring kickstarter and NvChad I have returned back to kickstarter :). 
 
 ## Todo
-- [ ] Add a better tab 
 - [ ] change theme to aether
 ``

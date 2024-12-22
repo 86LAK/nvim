@@ -190,6 +190,13 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Keybinds to split window
+vim.keymap.set('n', '<leader>wh', '<cmd>split<CR>', { desc = 'Split window horizontally' })
+vim.keymap.set('n', '<leader>wv', '<cmd>vsplit<CR>', { desc = 'Split window vertically' })
+
+-- Keybinds to make new tab
+vim.keymap.set('n', '<leader>wt', '<cmd>tabnew<CR>', { desc = 'New tab' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
