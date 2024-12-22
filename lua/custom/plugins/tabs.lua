@@ -1,19 +1,25 @@
-require('lazy').setup {
-  {
-    'romgrk/barbar.nvim',
-    dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-    },
-    init = function()
-      vim.g.barbar_auto_setup = false
-    end,
-    opts = {
-      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-      -- animation = true,
-      -- insert_at_start = true,
-      -- …etc.
-    },
-    version = '^1.0.0', -- optional: only update when a new 1.x version is released
-  },
-}
+vim.opt.termguicolors = true
+require('bufferline').setup {}
+
+local function delete_buffer(bufnum)
+  -- Check if the buffer exists and is valid
+  if vim.api.nvim_buf_is_valid(bufnum) and vim.api.nvim_buf_get_option(bufnum, 'buflisted') then
+    vim.api.nvim_buf_delete(bufnum, { force = true })
+  end
+end
+
+-- Closes the current buffer on leader w c
+vim.keymap.set('n', '<leader>wc', function()
+  local bufnum = vim.api.nvim_get_current_buf()
+  delete_buffer(bufnum)
+end, { noremap = true, silent = true, desc = 'Close the current buffer' })
+
+-- Switches to the next buffer on leader w n
+vim.keymap.set('n', '<leader>wn', function()
+  vim.cmd 'BufferLineCycleNext'
+end, { noremap = true, silent = true, desc = 'Switch to the next buffer' })
+
+-- Switches to the previous buffer on leader w p
+vim.keymap.set('n', '<leader>wp', function()
+  vim.cmd 'BufferLineCyclePrev'
+end, { noremap = true, silent = true, desc = 'Switch to the previous buffer' })
