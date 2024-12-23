@@ -280,6 +280,7 @@ require('lazy').setup({
           },
         },
       },
+      lazygit = {},
     },
   },
 

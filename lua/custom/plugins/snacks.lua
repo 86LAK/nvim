@@ -1,3 +1,4 @@
+-- Tabs
 vim.opt.termguicolors = true
 require('bufferline').setup {}
 
@@ -23,3 +24,8 @@ end, { noremap = true, silent = true, desc = 'Switch to the next buffer' })
 vim.keymap.set('n', '<leader>wp', function()
   vim.cmd 'BufferLineCyclePrev'
 end, { noremap = true, silent = true, desc = 'Switch to the previous buffer' })
+
+-- Lazygit
+vim.keymap.set('n', '<leader>wg', function()
+  require('snacks').lazygit.open()
+end, { desc = 'Open lazygit' })
