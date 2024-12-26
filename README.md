@@ -1,4 +1,4 @@
-![Neovim(./Doc/nvim.svg)]
+![Neovim](./Doc/nvim.svg)
 
 
 # 86LAK's Neovim Config
