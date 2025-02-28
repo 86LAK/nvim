@@ -1092,5 +1092,17 @@ require('lazy').setup({
 -- Required to load in custom made plugins
 require 'custom.plugins'
 
+-- Required to fix commentstring for terraform
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('FixTerraformCommentString', { clear = true }),
+  callback = function(ev)
+    vim.bo[ev.buf].commentstring = '# %s'
+  end,
+  pattern = { 'terraform', 'hcl' },
+})
+
+-- Enable spell always on.
+vim.opt.spell = true
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
